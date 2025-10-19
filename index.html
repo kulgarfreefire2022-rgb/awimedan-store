@@ -3,381 +3,109 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AWIMEDAN STORE - Modern Glass</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<title>Situs Untuk Ke Toko Sedang Di Tutup Sementara</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:'Poppins',sans-serif;
-  background: url('images/background.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color:#fff;
-  overflow-x:hidden;
-  scroll-behavior:smooth;
-  min-height:100vh;
-}
-body::before{
-  content:"";
-  position:fixed; top:0; left:0; width:100%; height:100%;
-  background: rgba(0,0,0,0.3);
-  z-index:-1;
-}
-header{
-  position:sticky; top:0;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  padding:15px 20px;
-  z-index:100;
-  display:flex; flex-direction:column; align-items:center;
-  transition:0.3s;
-}
-header.shrink{padding:5px 20px;}
-.header-top{width:100%; display:flex; justify-content:center; align-items:center; position:relative;}
-.neon-title{font-size:2rem;font-weight:600;color:#fff;transition:0.3s;}
-header.shrink .neon-title{font-size:1.2rem;}
-.neon-subtitle{font-size:1rem;color:#fff;margin-top:5px;}
-#burger-menu{position:absolute;right:0;top:0;cursor:pointer;font-size:1.8rem;color:#fff;z-index:110;}
-#burger-content{
-  display:none;
-  position:absolute;
-  top:45px;
-  right:10px;
-  background: #111; 
-  border-radius:10px;
-  padding:10px;
-  z-index:100;
-  width:200px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.5); 
-}
-#burger-content a{
-  display:block;
-  margin:5px 0;
-  color:#FF6600;
-  padding:5px 10px;
-  border-radius:5px;
-  transition:0.3s;
-  font-weight:600;
-  text-decoration:none;
-}
-#burger-content a:hover{background:#FF6600;color:#fff;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* Google Translate Oval */
-#google_translate_element{
-  display:inline-block;
-  background: #fff;       
-  color:#111;             
-  border-radius:50px;     
-  padding:5px 15px;       
-  font-weight:600;
-  font-size:0.9rem;
-  box-shadow:0 4px 10px rgba(0,0,0,0.3);
-  transition:0.3s;
-}
-#google_translate_element:hover{
-  transform: scale(1.05);
-  box-shadow:0 6px 15px rgba(0,0,0,0.4);
-}
+    body {
+        font-family: 'Arial', sans-serif;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        text-align: center;
+        background: #1e1e2f;
+        overflow: hidden;
+        position: relative;
+    }
 
-.navbar{display:flex;justify-content:center;gap:15px;background: rgba(0,0,0,0.2);overflow-x:auto;padding:10px 0;position:sticky;top:90px;z-index:10;border-radius:10px;}
-.navbar button{
-  background:none;border:2px solid #fff;color:#fff;padding:10px 20px;font-weight:600;font-size:1rem;border-radius:8px;transition:0.3s;
-}
-.navbar button.active,.navbar button:hover{background:#FF6600;color:#fff;box-shadow:0 0 10px #FF6600;}
-.main{padding:20px;max-width:1200px;margin:0 auto;}
-.tab-content{display:none;opacity:0;transform:translateY(20px);transition:0.6s;}
-.tab-content.active{display:block;opacity:1;transform:translateY(0);}
-.home-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-top:20px;}
-.home-card{
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  border:1px solid rgba(255,255,255,0.2);
-  border-radius:12px;
-  padding:15px;text-align:center;
-  transition:0.3s, transform 0.3s;
-}
-.home-card:hover{transform:scale(1.05);box-shadow:0 0 15px #FF6600,0 0 25px #0066FF;}
-.home-card h3{margin-bottom:8px;color:#FF6600;}
-.home-card p{font-size:0.85rem; color:#fff;}
-button.custom-btn{
-  cursor:pointer;
-  border:none;
-  padding:10px 20px;
-  font-weight:600;
-  border-radius:8px;
-  margin:5px;
-  transition:0.3s, transform 0.3s, box-shadow 0.3s;
-  background:#FF6600;color:#fff;
-  box-shadow:0 0 10px #FF6600,0 0 20px #0066FF;
-}
-button.custom-btn:hover{
-  transform: translateY(-5px) scale(1.05);
-  box-shadow:0 0 15px #FF6600,0 0 30px #0066FF,0 5px 15px rgba(0,0,0,0.3);
-}
-.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:20px;}
-.product-card{
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  border:1px solid rgba(255,255,255,0.2);
-  border-radius:10px;padding:8px;text-align:center;
-  transition:0.3s, transform 0.3s, box-shadow 0.3s;
-  position:relative;
-  overflow:hidden;
-}
-.product-card img{
-  width:100%;
-  border-radius:6px;
-  margin-bottom:5px;
-  transition: transform 0.3s ease;
-}
-.product-card:hover{
-  transform: translateY(-10px) scale(1.05);
-  box-shadow:0 15px 25px rgba(255,102,0,0.4),0 0 20px #FF6600,0 0 30px #0066FF;
-}
-.product-card:hover img{transform: scale(1.1);}
-.product-card h2{margin:4px 0;font-size:0.9rem;color:#FF6600;}
-.product-card p{font-size:0.75rem;color:#fff;}
-.product-card .price{font-size:0.8rem;margin-bottom:5px;color:#FF6600;}
-.disclaimer{
-  margin-top:30px;padding:15px;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  border:1px solid rgba(255,255,255,0.2);
-  border-radius:12px;
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-}
-.disclaimer h3{
-  animation: blinkDisclaimer 1s infinite;
-  text-align:center;
-  font-weight:bold;
-  color:#FF6600;
-}
-.disclaimer p{text-align:center;color:#fff;}
-@keyframes blinkDisclaimer{
-  0%,50%,100%{opacity:1;}
-  25%,75%{opacity:0.3;}
-}
-#wa-float{
-  position:fixed;bottom:20px;right:20px;z-index:100;
-  background:#25D366;color:white;width:60px;height:60px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 10px rgba(0,0,0,0.3);transition:0.3s;
-}
-#wa-float img{width:35px;height:35px;}
-#wa-float:hover{transform:scale(1.1);}
-#scrollTopBtn{position:fixed;bottom:90px;right:20px;z-index:100;background:#FF6600;color:#fff;padding:10px 12px;border-radius:50%;cursor:pointer;font-weight:bold;font-size:1.2rem;display:none;}
-#scrollTopBtn:hover{background:#0066FF;}
-.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:20px;}
-.video-card{background: rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:10px;text-align:center;transition:0.3s;}
-.video-card iframe{width:100%;height:200px;border-radius:10px;}
-.video-card p{margin-top:10px;font-weight:600;color:#FF6600;}
-@media(max-width:800px){.video-card iframe{height:180px;}}
+    h1 { font-size: 3em; margin-bottom: 0.5em; z-index: 2; }
+    p { font-size: 1.2em; margin-bottom: 1.5em; z-index: 2; }
+    .clock {
+        font-size: 2em;
+        font-weight: bold;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 15px 30px;
+        border-radius: 10px;
+        z-index: 2;
+    }
+
+    .rain { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index: 1; }
+    .drop { position: absolute; width: 2px; height: 15px; background: rgba(174, 194, 224, 0.5); animation: fall linear infinite; }
+
+    @keyframes fall {
+        0% { transform: translateY(-20px); opacity: 1; }
+        100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    .lightning {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: white;
+        opacity: 0;
+        z-index: 3;
+        pointer-events: none;
+    }
+
+    @media (max-width: 600px) {
+        h1 { font-size: 2em; }
+        p { font-size: 1em; }
+        .clock { font-size: 1.5em; padding: 10px 20px; }
+    }
 </style>
 </head>
 <body>
+    <h1>Situs Untuk Ke Toko Sedang Di Tutup Sementara</h1>
+    <p>Mohon maaf atas ketidaknyamanan ini, Saat ini Toko Kami Sedang Tutup, Kami akan segera kembali. Pada Waktu Dan Tanggal Yang Telah Di Tentukan Di Saluran Telegram Kami.</p>
+    <div class="clock" id="clock">00:00:00</div>
 
-<header id="header">
-  <div class="header-top">
-    <h1 class="neon-title">AWIMEDAN STORE</h1>
-    <div id="burger-menu">&#9776;</div>
-    <div id="burger-content">
-      <a href="https://wa.me/6281330750863" target="_blank">WhatsApp</a>
-      <a href="https://t.me/Angka9382" target="_blank">Telegram</a>
-      <a href="mailto:alightmotionzann@gmail.com" target="_blank">Email</a>
-      <a href="https://wa.me/6281330750863?text=Halo admin, saya mau bayar" target="_blank">Payment</a>
-      <div id="google_translate_element"></div>
-    </div>
-  </div>
-  <p class="neon-subtitle">CAR PARKING MULTIPLAYER</p>
-</header>
+    <div class="rain" id="rain"></div>
+    <div class="lightning" id="lightning"></div>
 
-<div class="navbar">
-  <button class="active" onclick="openTab('HOME',this)">Home</button>
-  <button onclick="openTab('PRODUCT',this)">Produk</button>
-  <button onclick="openTab('VIDEO',this)">Video</button>
-</div>
+    <audio id="rainSound" loop autoplay>
+        <source src="https://www.soundjay.com/nature/rain-01.mp3" type="audio/mpeg">
+    </audio>
 
-<div class="main">
-  <!-- HOME -->
-  <!-- HOME -->
-<div id="HOME" class="tab-content active">
-  <div style="text-align:center; padding:20px 10px;">
-    <!-- Judul & Subtitle -->
-    <h1 class="neon-title">AWIMEDAN STORE</h1>
-    <p class="neon-subtitle">Dapatkan script game online favoritmu sekarang!</p>
-    
-    <!-- Tombol Lihat Produk & Request -->
-    <div style="margin-top:20px;">
-      <button class="custom-btn" onclick="openTab('PRODUCT', document.querySelector('.navbar button:nth-child(2)'))">Lihat Produk</button>
-      <button class="custom-btn" onclick="beliProduk('Request Script')">Request Script</button>
-    </div>
+    <script>
+        // Set volume rendah agar autoplay tidak terlalu mengganggu
+        const rainSound = document.getElementById('rainSound');
+        rainSound.volume = 0.2; 
 
-    <!-- Home Cards -->
-    <div class="home-cards" style="margin-top:30px;">
-      <div class="home-card"><h3>⚡️ Cepat & Aman</h3><p>Script siap pakai, langsung bisa digunakan.</p></div>
-      <div class="home-card"><h3>🆕️ Update Terbaru</h3><p>Selalu update untuk game populer terbaru.</p></div>
-      <div class="home-card"><h3>📩 Request Mudah</h3><p>Admin fast respon, bisa request script sesuai keinginan.</p></div>
-      <div class="home-card"><h3>💳 Pembayaran Mudah</h3><p>Langsung WA, aman dan cepat.</p></div>
-    </div>
+        // Jam real-time
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
 
-    <!-- Promo Banner -->
-    <div class="home-cards" style="margin-top:30px; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));">
-      <div class="home-card" style="background: rgba(255,102,0,0.3);">
-        <h3>🔥 Promo Script Baru!</h3>
-        <p>Dapatkan diskon 10% untuk script terbaru.</p>
-      </div>
-    </div>
+        // Animasi hujan
+        const rainContainer = document.getElementById('rain');
+        const numberOfDrops = 100;
+        for(let i = 0; i < numberOfDrops; i++) {
+            const drop = document.createElement('div');
+            drop.classList.add('drop');
+            drop.style.left = Math.random() * window.innerWidth + 'px';
+            drop.style.animationDuration = 0.5 + Math.random() * 1.5 + 's';
+            drop.style.animationDelay = Math.random() * 5 + 's';
+            drop.style.height = 10 + Math.random() * 20 + 'px';
+            rainContainer.appendChild(drop);
+        }
 
-    <!-- Testimoni ala Google Play Store -->
-<div class="home-cards" style="margin-top:30px;">
-  <div class="review-card">
-    <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
-    <p class="review-text">Script nya gampang dipakai, admin cepat respon, mantap min sukses selalu!</p>
-    <p class="reviewer">- User RizkyAkbar</p>
-  </div>
-  <div class="review-card">
-    <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
-    <p class="review-text">Script Liaran bikin main game makin seru, recommended sih ini.!!</p>
-    <p class="reviewer">- User ArepManurung</p>
-  </div>
-  <div class="review-card">
-    <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
-    <p class="review-text">Request script mudah dan cepat sampai. Terima kasih Mas !!</p>
-    <p class="reviewer">- User FauzanPrtma</p>
-  </div>
-</div>
-
-<style>
-.review-card{
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  border-radius:12px;
-  padding:15px;
-  text-align:left;
-  box-shadow:0 4px 10px rgba(0,0,0,0.2);
-  transition:0.3s;
-}
-.review-card:hover{
-  transform: translateY(-5px);
-  box-shadow:0 8px 20px rgba(0,0,0,0.3);
-}
-.stars{
-  color: #FFD700; /* Warna emas bintang */
-  font-size:1rem;
-  margin-bottom:5px;
-}
-.review-text{
-  color:#fff;
-  font-size:0.85rem;
-  margin-bottom:8px;
-}
-.reviewer{
-  color:#FF6600;
-  font-weight:600;
-  font-size:0.8rem;
-}
-.home-cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
-}
-</style>
-
-
-    <!-- Disclaimer -->
-    <div class="disclaimer" style="margin-top:40px;">
-      <h3>⚠️ AWAS PENIPUAN ⚠️</h3>
-      <p>Semua transaksi resmi melalui admin kami. Jangan transfer ke pihak lain. Selalu konfirmasi sebelum membeli!</p>
-    </div>
-  </div>
-</div>
-
-
-  <!-- PRODUCT -->
-  <div id="PRODUCT" class="tab-content">
-    <div class="product-grid">
-      <div class="product-card"><img src="images/Timing Kuda Tune Up.jpg" alt="Script Timing Kuda Tune Up"><h2>Script Timing Kuda Tune Up</h2><p>Suara Yang Mirip Seperti Hentakan Kaki Kuda Dengan Kecepatan Tinggi.</p><p class="price">Rp 20.000</p><button class="custom-btn" onclick="beliProduk('Script Timing Kuda Tune Up nya mas')">Beli Sekarang</button></div>
-      <div class="product-card"><img src="images/Script Velg Bakar & Chrome.jpg" alt="Script Velg Bakar & Chrome"><h2>Script Velg Bakar & Chrome</h2><p>Buat Velg Kamu Beda Dengan Yang Lain Dan Terlihat Sangat Mewah & Elegant.</p><p class="price">Rp 20.000</p><button class="custom-btn" onclick="beliProduk('Script Velg Bakar & Chrome nya mas')">Beli Sekarang</button></div>
-      <div class="product-card"><img src="images/Unlock Premium Features.jpg" alt="Script Unlock Premium Features"><h2>Script Unlock Premium Features</h2><p>Akses Semua Fitur Yang Berkaitan Dengan Premium Secara Gratis.</p><p class="price">Rp 20.000</p><button class="custom-btn" onclick="beliProduk('Script Unlock Premium Features Mas')">Beli Sekarang</button></div>
-      <div class="product-card"><img src="images/race.jpg" alt="Script Race"><h2>Script Race</h2><p>Kecepatan Super Dan Jadilah Pemenang Dalam Game Anda.</p><p class="price">Rp 40.000</p><button class="custom-btn" onclick="beliProduk('Script Race')">Beli Sekarang</button></div>
-      <div class="product-card"><img src="images/F1 & F2 Tune Up Permanent .jpg" alt="CAR F1 & F2 1027+Kmh"><h2>CAR F1 & F2 1027+Kmh</h2><p>Mobil F1 & F2 Dengan Kecepatan Maksimum 1027 Kmh Untuk Liaran.</p><p class="price">Rp 17.000</p><button class="custom-btn" onclick="beliProduk('CAR F1 / F2 1027+Kmh Liaran Mas')">Beli Sekarang</button></div>
-      <div class="product-card"><img src="images/liaran.jpg" alt="Script Liaran"><h2>Script Liaran</h2><p>Jadi Lah Pemenang Dalam Ajang Balap Liaran Dengan Kecepatan Maksimum.</p><p class="price">Rp 20.000</p><button class="custom-btn" onclick="beliProduk('Script Liaran nya mas')">Beli Sekarang</button></div>
-      <div class="product-card"><img src="images/achievement.jpg" alt="Joki Rank King"><h2>Joki Rank King</h2><p>Capai semua prestasi game dalam 1 menit.</p><p class="price">Rp 25.000</p><button class="custom-btn" onclick="beliProduk('Jasa Joki Rank King')">Beli Sekarang</button></div>
-      <div class="product-card"><img src="images/request.jpg" alt="Script Request"><h2>Script Request</h2><p>Anda Bisa Request Sesuai Kebutuhan Anda, Harga Bisa Berubah Sewaktu-waktu.</p><p class="price">Rp 30.000</p><button class="custom-btn" onclick="beliProduk('Script Request Mas')">Beli Sekarang</button></div>
-    </div>
-  </div>
-
-  <!-- VIDEO -->
-  <div id="VIDEO" class="tab-content">
-    <div class="video-grid">
-      <div class="video-card"><iframe src="https://www.youtube.com/embed/C0n4V71HQ-k" frameborder="0" allowfullscreen></iframe><p>Script Timing Kuda Tune Up</p></div>
-      <div class="video-card"><iframe src="https://www.youtube.com/embed/1mfztq416sA" frameborder="0" allowfullscreen></iframe><p>Script Velg Bakar & Chrome</p></div>
-      <div class="video-card"><iframe src="https://www.youtube.com/embed/EZLj2wCen9I" frameborder="0" allowfullscreen></iframe><p>Script Unlock Premium Features</p></div>
-      <div class="video-card"><iframe src="https://www.youtube.com/embed/uE4ZjpffK9A" frameborder="0" allowfullscreen></iframe><p>CAR F1 & F2 1027+Kmh Permanent</p></div>
-      <div class="video-card"><iframe src="https://www.youtube.com/embed/4dBmdv8b4vE" frameborder="0" allowfullscreen></iframe><p>Script Liaran</p></div>
-      <div class="video-card"><iframe src="https://www.youtube.com/embed/gFfFNl_QV0c" frameborder="0" allowfullscreen></iframe><p>Joki Rank King</p></div>
-    </div>
-  </div>
-</div>
-
-<!-- Floating WhatsApp di pojok kanan bawah -->
-<a id="wa-float" href="https://wa.me/6281330750863" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
-</a>
-
-<style>
-#wa-float{
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  z-index: 100;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  transition: transform 0.3s;
-}
-#wa-float img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-#wa-float:hover{
-  transform: scale(1.1);
-}
-</style>
-
-<script>
-function openTab(tabName,elm){
-  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.navbar button').forEach(b=>b.classList.remove('active'));
-  document.getElementById(tabName).classList.add('active');
-  elm.classList.add('active');
-}
-function beliProduk(nama){
-  window.open(`https://wa.me/6281330750863?text=Saya%20mau%20beli%20${encodeURIComponent(nama)}`,'_blank');
-}
-document.getElementById('burger-menu').addEventListener('click',()=>{
-  const menu = document.getElementById('burger-content');
-  menu.style.display = menu.style.display==='block'?'none':'block';
-});
-window.addEventListener('scroll',()=>{
-  const header=document.getElementById('header');
-  if(window.scrollY>50){header.classList.add('shrink');}
-  else{header.classList.remove('shrink');}
-  const scrollBtn=document.getElementById('scrollTopBtn');
-  if(window.scrollY>300){scrollBtn.style.display='block';} else{scrollBtn.style.display='none';}
-});
-document.getElementById('scrollTopBtn').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-</script>
-
-<!-- Google Translate -->
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'id', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+        // Efek kilat petir
+        const lightning = document.getElementById('lightning');
+        function flashLightning() {
+            lightning.style.opacity = 1;
+            setTimeout(() => lightning.style.opacity = 0, 100 + Math.random()*200);
+            setTimeout(flashLightning, 3000 + Math.random()*7000);
+        }
+        flashLightning();
+    </script>
 </body>
-      </html>
+</html>
